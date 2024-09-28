@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> findfactors(int n){
+    vector<int> factors; //Find factors of n and store it
+    for(int i=1;i<=sqrt(n);i++){
+      if(n%i==0)
+      factors.push_back(i);
+
+      if(i!=n/i)
+      factors.push_back(n/i);
+
+    }
+ return factors;
+}
+int kth_largest_factor(int n,int k){
+vector<int> factors=findfactors(n);
+
+
+if(k>factors.size())   //edge case
+return 1;
+
+// sort(factors.begin(),factors.end());
+// reverse(factors.begin(),factors.end());   
+sort(factors.begin(),factors.end(),greater<int>());   //sorted & reversed
+
+return factors[k-1];
+
+
+
+}
+int main(){
+     int n, k;
+    cout << "Enter a number (n): ";
+    cin >> n;
+    cout << "Enter the value of k: ";
+    cin >> k;
+
+    int result = kth_largest_factor(n, k);
+    cout << "The " << k << "-th largest factor of " << n << " is: " << result << endl;
+
+    return 0;
+
+}
