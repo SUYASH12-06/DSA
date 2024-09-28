@@ -1,0 +1,50 @@
+// Toggle Bits of a Number:
+
+// You are given an integer n. Your task is to convert the integer to its binary representation, toggle each bit (change 1 to 0 and 0 to 1), and return the decimal value of the toggled binary representation.
+// Input:
+// A single integer n (0 ≤ n ≤ 10^6).
+// Output:
+// The decimal value obtained after toggling all the bits in the binary representation of n.
+// Constraints:
+// For the input n = 0, the toggled value should be 1 (as binary 0 toggles to 1).
+// The number n will be non-negative and within the provided range.
+// Example Input/Output:
+// Test Case 1:
+// Input:
+// 2
+// Explanation:
+// Binary of 2: 10
+// Toggled binary: 01
+// Output: 1
+// Output:
+// 1
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    string str="";
+    if(n==0){   //edge case
+        cout<<1<<endl;
+    }
+    while(n>0){
+        str+=to_string(n%2);
+        n/=2;
+    }
+    reverse(str.begin(),str.end());
+    //toggle
+    for(int i=0;i<str.length();i++){
+        if(str[i]=='1'){
+            str[i]='0';
+        }else{
+            str[i]='1';
+        }
+    }
+
+    int res=stoi(str,nullptr,2);
+
+    cout<<res<<endl;
+    
+}
