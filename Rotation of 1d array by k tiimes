@@ -1,0 +1,29 @@
+// Rotation of 1d array by k times
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> rotatearray(vector<int> &arr,int k){
+int n=arr.size();
+
+k=k%n;
+
+reverse(arr.begin(),arr.end());
+reverse(arr.begin(),arr.begin()+k);
+reverse(arr.begin()+k,arr.end());
+return arr;
+}
+int main(){
+int n;
+cin>>n;
+vector<int> arr(n);
+for(int i=0;i<arr.size();i++){
+cin>>arr[i];
+}
+
+int k;
+cin>>k;
+vector<int> res=rotatearray(arr,k);
+for(int i=0;i<res.size();i++){
+cout<<res[i]<<" ";
+}
+}
+
