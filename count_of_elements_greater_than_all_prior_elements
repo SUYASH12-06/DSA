@@ -1,0 +1,26 @@
+// Find Count of Elements Greater Than All Prior Elements
+// Problem: Given an integer array Arr , find the count of elements whose 
+// value is greater than all of its prior elements.
+// Test Case:
+// Input: Arr = [7,4,8,2,9]
+// Output: 3
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int maxsofar=arr[0];
+
+    int count=1;  // The first element is always counted
+    for(int i=1;i<arr.size();i++){
+       if(arr[i]>maxsofar){
+        maxsofar=arr[i];
+        count++;
+       }
+   }
+   cout<<count<<endl;
+}
