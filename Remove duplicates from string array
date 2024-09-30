@@ -1,0 +1,27 @@
+//Remove duplicates from string array
+#include<bits/stdc++.h>
+using namespace std;
+vector<string> removeDuplicates(vector<string> &str){
+ set<string> uniquestr;  // set stores only unique strings   
+ vector<string> res;     //vector to return only unique str
+
+ for(string s:str){
+    uniquestr.insert(s);  //uniquestr takes only unique strings
+ }
+ for(string s: uniquestr){
+    res.push_back(s);
+ }
+
+ return res;
+
+}
+int main(){
+   
+    vector<string> str= {"apple", "banana", "orange", "banana", "apple"};
+
+    vector<string> updatedstr=removeDuplicates(str);
+
+    for(int i=0;i<updatedstr.size();i++){
+         cout<<updatedstr[i]<<" ";
+    }
+}
