@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+// Write a program that reads an integer n from the user, computes the sum and product of its digits, and then prints the absolute difference between the product and the sum of the digits.
+// For example:
+// If n = 234, the sum of the digits is 2 + 3 + 4 = 9 and the product of the digits is 2 * 3 * 4 = 24. The absolute difference between the product and the sum is |24 - 9| = 15.
+int main(){
+    int n,digit;cin>>n;
+    int sum=0,product=1;
+    int num=n;
+    while(num>0){
+       digit=num%10;
+       sum+=digit;
+       product*=digit;
+       num/=10;
+    }
+    cout<<"Price= "<<abs(product-sum);
+}
