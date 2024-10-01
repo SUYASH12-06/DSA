@@ -1,0 +1,33 @@
+//Check i/p year belongs to which century
+// Problem Statement:
+// Write a program that takes an integer input representing a year and outputs the century that the year falls into. The first century starts at year 1 and ends at year 100.
+
+// Input:
+// A single integer representing the year (1 ≤ year ≤ 10000).
+
+// Output:
+// An integer representing the century.
+// Example:
+// Input: 2000
+// Output: 20
+// Input: 2023
+// Output: 21
+// Input: 100
+// Output: 1
+// Input: 99
+// Output: 1
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int year;
+    cin>>year;
+
+    if(year%100==0){
+        cout<<(year/100)<<endl;
+    }
+    else{
+        cout<<(year/100)+1<<endl;
+    }
+}
