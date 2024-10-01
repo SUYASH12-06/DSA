@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int convertinminutes(int h,int m){
+    return h*60+m;
+}
+int main(){
+    int h,m,h1,m1,x;
+    cin>>h>>m>>h1>>m1>>x;
+    int n=convertinminutes(h,m);
+    int target=convertinminutes(h1,m1);
+
+    n+=x*60;  //x hrs(in mins) added to n
+    n=n%(24*60);  //wrapping n within 24 hrs 
+
+    cout<<"Difference in minutes : "<<abs(target-n)<<endl; //so that o/p is always +ve
+
+}
