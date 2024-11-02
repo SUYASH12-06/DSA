@@ -1,0 +1,30 @@
+string sortSentence(string s) {
+     vector<string> ans(10,"");
+     int cnt=0;
+     string temp="";
+     for(int i=0;i<s.length();i++){
+        if(s[i]==' '){
+        int pos=temp[temp.length()-1]-'0';
+        temp.pop_back();  //to remove last char from word that temp is storing
+        ans[pos]=temp;
+        temp.clear();
+        cnt++;
+        }else{
+            temp+=s[i];
+        }
+     }
+       //for last word in string
+        int pos=temp[temp.length()-1]-'0';
+        temp.pop_back();  //to remove last char from word that temp is storing
+        ans[pos]=temp;
+        temp.clear();
+        cnt++;
+
+    string res="";
+    for(int i=1;i<=cnt;i++){
+        res+=ans[i]+" ";
+    }
+    res.pop_back();
+    return res;
+
+    }
