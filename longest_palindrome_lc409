@@ -1,0 +1,28 @@
+ int longestPalindrome(string s) {
+        vector<int> lower(26,0),upper(26,0); //2 vector arr for storing occurences of lower & upper alphabets in a string.
+        for(int i=0;i<s.length();i++){
+           if(s[i]>='a'){  //lower case char 
+            lower[s[i]-'a']++;
+           }else{   //upper case char
+            upper[s[i]-'A']++;
+           }
+        }
+        
+        int cnt=0;bool odd=0;
+        for(int i=0;i<26;i++){
+            if(lower[i]%2==0){ //lower char present even times
+                cnt+=lower[i];
+            }else{
+                cnt+=lower[i]-1;   //lower char present odd times
+                odd=1;
+            }
+            if(upper[i]%2==0){
+                cnt+=upper[i];
+            }else{
+                cnt+=upper[i]-1;
+                odd=1;
+            }
+        }
+
+        return cnt+odd;
+    }
